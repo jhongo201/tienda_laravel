@@ -19,7 +19,7 @@ return [
     ],
 
     'ses' => [
-        'key' => env('AWS_ACCESS_KEY_ID'),
+        'key'    => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
@@ -27,8 +27,16 @@ return [
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
-            'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
+            'channel'              => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
+    ],
+
+    'wompi' => [
+        'public_key'    => env('WOMPI_PUBLIC_KEY'),
+        'private_key'   => env('WOMPI_PRIVATE_KEY'),
+        'events_key'    => env('WOMPI_EVENTS_KEY'),
+        'integrity_key' => env('WOMPI_INTEGRITY_KEY'),
+        'redirect_url'  => env('WOMPI_REDIRECT_URL'),
     ],
 
 ];
