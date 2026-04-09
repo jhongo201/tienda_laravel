@@ -1,8 +1,11 @@
-<?php
+<?php 
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schedule;
+use App\Jobs\SendAbandonedCartEmails;
+use App\Jobs\ExpirePendingOrders; 
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote')->hourly();
+// Carritos abandonados — cada hora 
+Schedule::job(new SendAbandonedCartEmails)->hourly(); 
+
+// Expirar órdenes pending > 30 minutos 
+Schedule::job(new ExpirePendingOrders)->everyFifteenMinutes();
